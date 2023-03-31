@@ -25,7 +25,7 @@ clock = pygame.time.Clock()
 
 # test_surface.fill('Red')
 
-test_surface = pygame.image.load('graphics/sky.png')
+sky_surface = pygame.image.load('graphics/sky.png')
 
 # setup infinite game loop
 while True:
@@ -34,7 +34,7 @@ while True:
             pygame.quit() # polar opposite of pygame.init()
             exit() # this prevents error "pygame.error: video system not initialized"
     # draw all elements
-    screen.blit(test_surface,(200,100)) # takes surface and position
+    screen.blit(test_surface,(0,0)) # takes surface and position
 
 
     # update everything
