@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+Platformer Art
+Action Chiptunes
+
+# custom
+Platformer Art/*
+Action Chiptunes/*
