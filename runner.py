@@ -7,6 +7,11 @@ Link to the project folder: https://github.com/clear-code-projects/UltimatePygam
 
 Link to the background music: https://opengameart.org/content/5-chiptunes-action
 Link to the artwork: https://opengameart.org/content/platformer-art-pixel-edition
+
+got to showing the ground/sky surfaces at the 37m 15s mark or so
+
+left off on "working with text" at 37:44 in
+
 """
 '''
 # pygame 2.3.0
@@ -26,6 +31,8 @@ clock = pygame.time.Clock()
 # test_surface.fill('Red')
 
 sky_surface = pygame.image.load('graphics/sky.png')
+ground_surface = pygame.image.load('graphics/ground.png')
+
 
 # setup infinite game loop
 while True:
@@ -34,7 +41,10 @@ while True:
             pygame.quit() # polar opposite of pygame.init()
             exit() # this prevents error "pygame.error: video system not initialized"
     # draw all elements
-    screen.blit(test_surface,(0,0)) # takes surface and position
+    # the order these are in is the layeers - the top one drawn here is "under" the  second one (like sky being under "ground" if the orders sky then ground surface)
+    screen.blit(sky_surface,(0,0)) # takes surface and position
+    screen.blit(ground_surface,(0,300)) # takes surface and position
+
 
 
     # update everything
