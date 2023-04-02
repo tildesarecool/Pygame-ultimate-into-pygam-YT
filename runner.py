@@ -11,6 +11,8 @@ Link to the artwork: https://opengameart.org/content/platformer-art-pixel-editio
 got to showing the ground/sky surfaces at the 37m 15s mark or so
 
 left off on "working with text" at 37:44 in
+ractangles: 51:30
+
 
 """
 '''
@@ -31,11 +33,13 @@ test_font = pygame.font.Font('font/Pixeltype.ttf', 50)
 
 # test_surface.fill('Red')
 
-sky_surface = pygame.image.load('graphics/sky.png')
-ground_surface = pygame.image.load('graphics/ground.png')
+# convert make the PNG intosome kind of native python/pygame format...or something -- 50:30 in
+sky_surface = pygame.image.load('graphics/sky.png').convert()
+ground_surface = pygame.image.load('graphics/ground.png').convert()
 text_surface = test_font.render('My Game', False, 'Black') # text, anti-alias true/false, color
 
-snail_surface = pygame.image.load('graphics/snail/snail1.png')
+snail_surface = pygame.image.load('graphics/snail/snail1.png').convert_alpha() # alpha to acknowledge transparancy of PNG image
+
 snail_x_pos = 600
 
 # setup infinite game loop
