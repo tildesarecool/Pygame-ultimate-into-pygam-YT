@@ -25,6 +25,7 @@ pygame.init() # always run first
 screen = pygame.display.set_mode((800, 400))
 pygame.display.set_caption('Runner')
 clock = pygame.time.Clock()
+test_font = pygame.font.Font('font/Pixeltype.ttf', 50)
 
 # test_surface = pygame.Surface((100, 200)) # uses width/height - i guess double parens is necessary
 
@@ -32,6 +33,7 @@ clock = pygame.time.Clock()
 
 sky_surface = pygame.image.load('graphics/sky.png')
 ground_surface = pygame.image.load('graphics/ground.png')
+text_surface = test_font.render('My Game', False, 'Black') # text, anti-alias true/false, color
 
 
 # setup infinite game loop
@@ -44,6 +46,7 @@ while True:
     # the order these are in is the layeers - the top one drawn here is "under" the  second one (like sky being under "ground" if the orders sky then ground surface)
     screen.blit(sky_surface,(0,0)) # takes surface and position
     screen.blit(ground_surface,(0,300)) # takes surface and position
+    screen.blit(text_surface, (300, 50))
 
 
 
