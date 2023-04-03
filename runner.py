@@ -13,6 +13,9 @@ got to showing the ground/sky surfaces at the 37m 15s mark or so
 left off on "working with text" at 37:44 in
 ractangles: 51:30
 
+left off:
+collisions w/rectangles: 1h 3m 30s
+
 
 """
 '''
