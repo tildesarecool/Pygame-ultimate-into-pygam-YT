@@ -5,8 +5,9 @@ https://www.youtube.com/watch?v=AY9MnQ4x3zk
 
 Link to the project folder: https://github.com/clear-code-projects/UltimatePygameIntro
 
-Link to the background music: https://opengameart.org/content/5-chiptunes-action
-Link to the artwork: https://opengameart.org/content/platformer-art-pixel-edition
+Instead of using the previously mentioned openart links, i downloaded the github project as a zip file
+and just copied the graphics folder (also audio and fonts) into the project
+since the open art links didn't seem to have the resources mentioned anyway any more
 
 got to showing the ground/sky surfaces at the 37m 15s mark or so
 
