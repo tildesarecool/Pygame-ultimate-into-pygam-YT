@@ -40,10 +40,12 @@ test_font = pygame.font.Font('font/Pixeltype.ttf', 50)
 # for now "move rect instead of surface" is proper way to move element/character
 sky_surface = pygame.image.load('graphics/sky.png').convert()
 ground_surface = pygame.image.load('graphics/ground.png').convert()
-text_surface = test_font.render('My Game', False, 'Black') # text, anti-alias true/false, color
+
+score_surf = test_font.render('My Game', False, 'Black') # text, anti-alias true/false, color
+score_rect = score_surf.get_rect(center = (400, 50))
 
 snail_surf = pygame.image.load('graphics/snail/snail1.png').convert_alpha() # alpha to acknowledge transparancy of PNG image
-snail_rect = snail_surf.get_rect(midbottom = (600,300))
+snail_rect = snail_surf.get_rect(midbottom = (800,300))
 
 #snail_x_pos = 600  # no longer needed
 
@@ -57,20 +59,57 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit() # polar opposite of pygame.init()
             exit() # this prevents error "pygame.error: video system not initialized"
+
+# That other way to do mouse position/click detection - via the event loop as opposed to the pygame functions. i don't think one is better        
+        if event.type == pygame.MOUSEMOTION:
+            
+            print(event.pos)
+# can also use MOUSEBUTTONDOWN/UP
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            
+            print('mouse down')
+        
+        if event.type == pygame.MOUSEMOTION:
+            if player_rect.collidepoint(event.pos): print('collision')
+
     # draw all elements
     # the order these are in is the layeers - the top one drawn here is "under" the  second one (like sky being under "ground" if the orders sky then ground surface)
     screen.blit(sky_surface,(0,0)) # takes surface and position
     screen.blit(ground_surface,(0,300)) # takes surface and position
-    screen.blit(text_surface, (300, 50))
+    screen.blit(score_surf, score_rect)
 
     snail_rect.x -= 4
     if snail_rect.right <= 0: snail_rect.left = 800 # 800 is right side of screen
     screen.blit(snail_surf, snail_rect)
     #snail_x_pos -= 3
 
-    player_rect.left += 1 # as defined aboe, the rectangle around the player surface with "origin point" midbottom - this moves it via cordinates
+#    player_rect.left +=  1 # as defined aboe, the rectangle around the player surface with "origin point" midbottom - this moves it via cordinates
 #    print(player_rect.left) # useful for output of cords
     screen.blit(player_surf, player_rect) # now display both via biltter
+
+
+########################## RECTANGLE COLLIDE CODE #############################
+
+    if player_rect.colliderect(snail_rect):
+        print('collision')
+#    print(player_rect.colliderect(snail_rect))
+
+##################  also collide point - not used a lot but useful w/mouse -> rect1.collidepoint((x,y)) #########################
+##############getting mouse posiion - pygame.mouse or event loop
+########pygame.mouse ########################
+## mouse position, clicks etc
+#        mouse_pos = pygame.mouse.get_pos()
+#        if player_rect.collidepoint((mouse_pos)): 
+            
+#            print('collision')
+#        print(pygame.mouse.get_pressed())
+        
+
+
+
+
+########################## RECTANGLE COLLIDE CODE #############################
+
 
     # update everything
     pygame.display.update() # connected back to that screen variable
